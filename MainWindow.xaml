@@ -11,32 +11,40 @@
     <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
-                <MenuItem Header="_New"/>
-                <MenuItem Header="_Open..."/>
-                <MenuItem Header="_Save"/>
-                <MenuItem Header="Save _As..."/>
-                <MenuItem Header="E_xit"/>
+                <MenuItem Header="_New" Command="{Binding NewCommand}"/>
+                <MenuItem Header="_Open..." Command="{Binding OpenCommand}"/>
+                <MenuItem Header="_Save" Command="{Binding SaveCommand}"/>
+                <MenuItem Header="Save _As..." Command="{Binding SaveAsCommand}"/>
+                <MenuItem Header="E_xit" Command="{Binding ExitCommand}"/>
             </MenuItem>
 
             <MenuItem Header="_Edit">
-                <MenuItem Header="C_ut"/>
-                <MenuItem Header="_Copy"/>
-                <MenuItem Header="_Paste"/>
+                <MenuItem Header="C_ut" Command="{Binding CutCommand}"/>
+                <MenuItem Header="_Copy" Command="{Binding CopyCommand}"/>
+                <MenuItem Header="_Paste" Command="{Binding PasteCommand}"/>
+            </MenuItem>
+            
+            <MenuItem Header="_Object">
+                <MenuItem Header="Create">
+                    <MenuItem Header="Camera" Command="{Binding CreateCameraCommand}"/>
+                    <MenuItem Header="Point Light" Command="{Binding CreatePointLightCommand}"/>
+                    <MenuItem Header="Cube" Command="{Binding CreateCubeCommand}"/>
+                </MenuItem>
             </MenuItem>
             
             <MenuItem Header="_View">
-                <MenuItem Header="Camera"/>
+                <MenuItem Header="Camera" Command="{Binding ViewCameraCommand}"/>
                 <Separator />
-                <MenuItem Header="Front"/>
-                <MenuItem Header="Back"/>
-                <MenuItem Header="Top"/>
-                <MenuItem Header="Bottom"/>
-                <MenuItem Header="Left"/>
-                <MenuItem Header="Right"/>
+                <MenuItem Header="Front" Command="{Binding ViewFrontCommand}"/>
+                <MenuItem Header="Back" Command="{Binding ViewBackCommand}"/>
+                <MenuItem Header="Top" Command="{Binding ViewTopCommand}"/>
+                <MenuItem Header="Bottom" Command="{Binding ViewBottomCommand}"/>
+                <MenuItem Header="Left" Command="{Binding ViewLeftCommand}"/>
+                <MenuItem Header="Right" Command="{Binding ViewRightCommand}"/>
             </MenuItem>
             
             <MenuItem Header="_Help">
-                <MenuItem Header="_About..."/>
+                <MenuItem Header="_About..." Command="{Binding AboutCommand}"/>
             </MenuItem>
         </Menu>
         

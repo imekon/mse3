@@ -87,6 +87,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helpers\DelegateCommand.cs" />
     <Compile Include="Models\Camera.cs" />
     <Compile Include="Models\Cube.cs" />
     <Compile Include="Models\Parameter.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="Models\Shape.cs" />
     <Compile Include="ViewModels\CameraViewModel.cs" />
     <Compile Include="ViewModels\CubeViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ShapeViewModel.cs" />
     <Compile Include="ViewModels\StandardViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />

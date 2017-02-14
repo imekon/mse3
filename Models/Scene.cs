@@ -12,6 +12,8 @@ namespace mse.Models
             shapes = new List<Shape>();
         }
 
+        public List<Shape> Shapes => shapes;
+
         public Shape CreateShape(string name)
         {
             Shape shape = null;
