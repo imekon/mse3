@@ -17,7 +17,7 @@ namespace mse.ViewModels
             set
             {
                 var name = "";
-                if (SetField(ref name, value, "Name"))
+                if (SetProperty(ref name, value))
                 {
                     shape.Parameters.SetParameter("name", name);
                 }

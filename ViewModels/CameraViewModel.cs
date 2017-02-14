@@ -16,7 +16,7 @@ namespace mse.ViewModels
             set
             {
                 var vector = new Vector3D();
-                if (SetField(ref vector, value, "Position"))
+                if (SetProperty(ref vector, value))
                 {
                     shape.Parameters.SetParameter("position", vector);
                 }
@@ -29,7 +29,7 @@ namespace mse.ViewModels
             set
             {
                 var vector = new Vector3D();
-                if (SetField(ref vector, value, "LookAt"))
+                if (SetProperty(ref vector, value))
                 {
                     shape.Parameters.SetParameter("lookat", vector);
                 }
