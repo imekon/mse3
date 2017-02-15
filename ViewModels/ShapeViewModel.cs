@@ -1,14 +1,22 @@
-﻿using mse.Models;
+﻿using System.Windows.Media.Media3D;
+using mse.Models;
 
 namespace mse.ViewModels
 {
     public class ShapeViewModel : ViewModelBase
     {
-        protected Shape shape;
+        protected readonly Shape shape;
+        protected readonly Visual3D visual;
 
-        public ShapeViewModel(Shape shape)
+        public ShapeViewModel(Shape shape, Visual3D visual)
         {
             this.shape = shape;
+            this.visual = visual;
+        }
+
+        public ShapeViewModel(Shape shape) : this(shape, null)
+        {
+            
         }
 
         public string Name
@@ -23,5 +31,7 @@ namespace mse.ViewModels
                 }
             }
         }
+
+        public Visual3D Visual => visual;
     }
 }

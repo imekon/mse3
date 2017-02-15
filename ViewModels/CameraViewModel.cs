@@ -1,13 +1,13 @@
 ﻿using System.Windows.Media.Media3D;
+using HelixToolkit.Wpf;
 using Camera = mse.Models.Camera;
 
 namespace mse.ViewModels
 {
     public class CameraViewModel : ShapeViewModel
     {
-        public CameraViewModel(Camera camera) : base(camera)
+        public CameraViewModel(Camera camera) : base(camera, new BoxVisual3D())
         {
-            
         }
 
         public Vector3D Position
