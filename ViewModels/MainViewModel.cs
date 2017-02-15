@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Input;
 using mse.Helpers;
 using mse.Models;
+using Microsoft.Win32;
 
 namespace mse.ViewModels
 {
@@ -53,6 +54,18 @@ namespace mse.ViewModels
 
         private void OnFileOpen(object obj)
         {
+            var dialog = new OpenFileDialog
+            {
+                Title = "Open Model Scene Editor project",
+                Filter = "Model Scene Editor projects (*.mse)|*.mse",
+                DefaultExt = ".mse"
+            };
+
+            var result = dialog.ShowDialog();
+            if (result == true)
+            {
+                scene.Load(dialog.FileName);
+            }
         }
 
         private void OnFileSave(object obj)
@@ -61,6 +74,18 @@ namespace mse.ViewModels
 
         private void OnFileSaveAs(object obj)
         {
+            var dialog = new SaveFileDialog
+            {
+                Title = "Save Model Scene Editor project",
+                Filter = "Model Scene Editor projects (*.mse)|*.mse",
+                DefaultExt = ".mse"
+            };
+
+            var result = dialog.ShowDialog();
+            if (result == true)
+            {
+                scene.Save(dialog.FileName);
+            }
         }
 
         private void OnExit(object obj)

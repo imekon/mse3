@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace mse.Models
 {
@@ -41,6 +43,25 @@ namespace mse.Models
                 shapes.Add(shape);
 
             return shape;
+        }
+
+        public void Load(string filename)
+        {
+            var data = File.ReadAllText(filename);
+            var scene = JsonConvert.DeserializeObject<Scene>(data);
+
+            shapes.Clear();
+
+            foreach (var shape in scene.Shapes)
+            {
+                shapes.Add(shape);
+            }
+        }
+
+        public void Save(string filename)
+        {
+            var data = JsonConvert.SerializeObject(this);
+            File.WriteAllText(filename, data);
         }
     }
 }
