@@ -1,4 +1,5 @@
 ﻿using System.Windows.Media.Media3D;
+using mse.Models.Parameters;
 
 namespace mse.Models
 {
@@ -6,8 +7,8 @@ namespace mse.Models
     {
         public Camera()
         {
-            parameters.AddParameter<Vector3D>("position", new Vector3D(0.0, 0.0, 5.0));
-            parameters.AddParameter<Vector3D>("lookat", new Vector3D(0.0, 0.0, 0.0));
+            parameters.AddParameter<VectorValue>("position", new VectorValue(new Vector3D(0.0, 0.0, 5.0)));
+            parameters.AddParameter<VectorValue>("lookat", new VectorValue(new Vector3D(0.0, 0.0, 0.0)));
         }
     }
 }

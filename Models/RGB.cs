@@ -1,4 +1,6 @@
-﻿namespace mse.Models
+﻿using mse.Models.Parameters;
+
+namespace mse.Models
 {
     public class RGB
     {

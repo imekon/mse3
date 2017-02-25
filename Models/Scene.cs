@@ -47,21 +47,29 @@ namespace mse.Models
 
         public void Load(string filename)
         {
-            var data = File.ReadAllText(filename);
-            var scene = JsonConvert.DeserializeObject<Scene>(data);
-
             shapes.Clear();
-
-            foreach (var shape in scene.Shapes)
-            {
-                shapes.Add(shape);
-            }
         }
 
         public void Save(string filename)
         {
-            var data = JsonConvert.SerializeObject(this);
-            File.WriteAllText(filename, data);
+            using (var textWriter = new StreamWriter(filename))
+            {
+                using (var jsonWriter = new JsonTextWriter(textWriter))
+                {
+                    jsonWriter.Formatting = Formatting.Indented;
+
+                    jsonWriter.WriteStartArray();
+
+                    foreach (var shape in shapes)
+                    {
+                        shape.ExportToJson(jsonWriter);
+                    }
+
+                    jsonWriter.WriteEndArray();
+                }
+
+                textWriter.Close();
+            }
         }
     }
 }

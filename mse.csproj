@@ -94,7 +94,12 @@
     <Compile Include="Helpers\DelegateCommand.cs" />
     <Compile Include="Models\Camera.cs" />
     <Compile Include="Models\Cube.cs" />
-    <Compile Include="Models\Parameter.cs" />
+    <Compile Include="Models\Parameters\FloatValue.cs" />
+    <Compile Include="Models\Parameters\Parameter.cs" />
+    <Compile Include="Models\Parameters\ParameterManager.cs" />
+    <Compile Include="Models\Parameters\ParameterValue.cs" />
+    <Compile Include="Models\Parameters\StringValue.cs" />
+    <Compile Include="Models\Parameters\VectorValue.cs" />
     <Compile Include="Models\PointLight.cs" />
     <Compile Include="Models\RGB.cs" />
     <Compile Include="Models\Scene.cs" />
