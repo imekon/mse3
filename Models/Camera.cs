@@ -7,8 +7,8 @@ namespace mse.Models
     {
         public Camera()
         {
-            parameters.AddParameter("position", new VectorValue(new Vector3D(0.0, 0.0, 5.0)));
-            parameters.AddParameter("lookat", new VectorValue(new Vector3D(0.0, 0.0, 0.0)));
+            _parameters.AddParameter("position", new VectorValue(new Vector3D(0.0, 0.0, 5.0)));
+            _parameters.AddParameter("lookat", new VectorValue(new Vector3D(0.0, 0.0, 0.0)));
         }
     }
 }

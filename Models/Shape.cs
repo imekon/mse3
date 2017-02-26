@@ -6,31 +6,37 @@ namespace mse.Models
 {
     public class Shape
     {
-        protected ParameterManager parameters;
+        protected ParameterManager _parameters;
 
         public Shape()
         {
-            parameters = new ParameterManager();
+            _parameters = new ParameterManager();
 
-            parameters.AddParameter<string>("name", new StringValue("unknown"));
+            _parameters.AddParameter<string>("name", new StringValue("unknown"));
         }
 
-        public ParameterManager Parameters => parameters;
+        public ParameterManager Parameters => _parameters;
+
+        public string Name
+        {
+            get { return _parameters.GetParameter<string>("name").Value; }
+            set { _parameters.SetParameter("name", new StringValue(value)); }
+        }
 
         protected void AddStandardParameters()
         {
             var texture = TextureManager.GetInstance().FindTexture("Red");
 
-            parameters.AddParameter("translate", new VectorValue(new Vector3D(0.0, 0.0, 0.0)));
-            parameters.AddParameter("scale", new VectorValue(new Vector3D(1.0, 1.0, 1.0)));
-            parameters.AddParameter("rotate", new VectorValue(new Vector3D(0.0, 0.0, 0.0)));
-            parameters.AddParameter("texture", new TextureValue(texture));
+            _parameters.AddParameter("translate", new VectorValue(new Vector3D(0.0, 0.0, 0.0)));
+            _parameters.AddParameter("scale", new VectorValue(new Vector3D(1.0, 1.0, 1.0)));
+            _parameters.AddParameter("rotate", new VectorValue(new Vector3D(0.0, 0.0, 0.0)));
+            _parameters.AddParameter("texture", new TextureValue(texture));
         }
 
         public virtual void ExportToJson(JsonTextWriter jsonWriter)
         {
             jsonWriter.WriteStartObject();
-            parameters.ExportToJson(jsonWriter);
+            _parameters.ExportToJson(jsonWriter);
             jsonWriter.WriteEndObject();
         }
     }

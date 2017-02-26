@@ -7,8 +7,8 @@ namespace mse.Models
     {
         public PointLight()
         {
-            parameters.AddParameter("position", new VectorValue(new Vector3D(2.0, 2.0, 2.0)));
-            parameters.AddParameter("colour", new RGBValue(new RGB(1.0f, 1.0f, 1.0f)));
+            _parameters.AddParameter("position", new VectorValue(new Vector3D(2.0, 2.0, 2.0)));
+            _parameters.AddParameter("colour", new RGBValue(new RGB(1.0f, 1.0f, 1.0f)));
         }
     }
 }

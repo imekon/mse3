@@ -6,13 +6,13 @@ namespace mse.ViewModels
 {
     public class ShapeViewModel : ViewModelBase
     {
-        protected readonly Shape shape;
-        protected readonly Visual3D visual;
+        protected readonly Shape _shape;
+        protected readonly Visual3D _visual;
 
         public ShapeViewModel(Shape shape, Visual3D visual)
         {
-            this.shape = shape;
-            this.visual = visual;
+            _shape = shape;
+            _visual = visual;
         }
 
         public ShapeViewModel(Shape shape) : this(shape, null)
@@ -22,17 +22,17 @@ namespace mse.ViewModels
 
         public string Name
         {
-            get { return shape.Parameters.GetParameter<string>("name").Value; }
+            get { return _shape.Parameters.GetParameter<string>("name").Value; }
             set
             {
                 var name = "";
                 if (SetProperty(ref name, value))
                 {
-                    shape.Parameters.SetParameter("name", new StringValue(name));
+                    _shape.Parameters.SetParameter("name", new StringValue(name));
                 }
             }
         }
 
-        public Visual3D Visual => visual;
+        public Visual3D Visual => _visual;
     }
 }

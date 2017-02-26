@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace mse.ViewModels
@@ -11,7 +10,7 @@ namespace mse.ViewModels
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
@@ -22,7 +21,7 @@ namespace mse.ViewModels
             }
 
             storage = value;
-            this.OnPropertyChanged(propertyName);
+            OnPropertyChanged(propertyName);
             return true;
         }
     }

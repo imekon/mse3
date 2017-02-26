@@ -6,15 +6,15 @@ namespace mse.Models
 {
     public class Scene
     {
-        private List<Shape> shapes;
-        private Camera camera;
+        private List<Shape> _shapes;
+        private Camera _camera;
 
         public Scene()
         {
-            shapes = new List<Shape>();
+            _shapes = new List<Shape>();
         }
 
-        public List<Shape> Shapes => shapes;
+        public List<Shape> Shapes => _shapes;
 
         public Shape CreateShape(string name)
         {
@@ -22,9 +22,9 @@ namespace mse.Models
 
             switch (name)
             {
-                case "camera":
-                    camera = new Camera();
-                    shape = camera;
+                case "_camera":
+                    _camera = new Camera();
+                    shape = _camera;
                     break;
 
                 case "pointlight":
@@ -40,14 +40,14 @@ namespace mse.Models
             }
 
             if (shape != null)
-                shapes.Add(shape);
+                _shapes.Add(shape);
 
             return shape;
         }
 
         public void Load(string filename)
         {
-            shapes.Clear();
+            _shapes.Clear();
         }
 
         public void Save(string filename)
@@ -60,7 +60,7 @@ namespace mse.Models
 
                     jsonWriter.WriteStartArray();
 
-                    foreach (var shape in shapes)
+                    foreach (var shape in _shapes)
                     {
                         shape.ExportToJson(jsonWriter);
                     }

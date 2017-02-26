@@ -13,26 +13,26 @@ namespace mse.ViewModels
 
         public Vector3D Position
         {
-            get { return shape.Parameters.GetParameter<Vector3D>("position").Value; }
+            get { return _shape.Parameters.GetParameter<Vector3D>("position").Value; }
             set
             {
                 var vector = new Vector3D();
                 if (SetProperty(ref vector, value))
                 {
-                    shape.Parameters.SetParameter("position", new VectorValue(vector));
+                    _shape.Parameters.SetParameter("position", new VectorValue(vector));
                 }
             }
         }
 
         public Vector3D LookAt
         {
-            get { return shape.Parameters.GetParameter<Vector3D>("lookat").Value; }
+            get { return _shape.Parameters.GetParameter<Vector3D>("lookat").Value; }
             set
             {
                 var vector = new Vector3D();
                 if (SetProperty(ref vector, value))
                 {
-                    shape.Parameters.SetParameter("lookat", new VectorValue(vector));
+                    _shape.Parameters.SetParameter("lookat", new VectorValue(vector));
                 }
             }
         }

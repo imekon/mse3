@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
 using mse.Helpers;
@@ -10,42 +9,42 @@ namespace mse.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        private Scene scene;
+        private Scene _scene;
 
-        private ObservableCollection<ShapeViewModel> shapes;
+        private ObservableCollection<ShapeViewModel> _shapes;
 
-        private readonly DelegateCommand newCommand;
-        private readonly DelegateCommand openCommand;
-        private readonly DelegateCommand saveCommand;
-        private readonly DelegateCommand saveAsCommand;
-        private readonly DelegateCommand exitCommand;
+        private readonly DelegateCommand _newCommand;
+        private readonly DelegateCommand _openCommand;
+        private readonly DelegateCommand _saveCommand;
+        private readonly DelegateCommand _saveAsCommand;
+        private readonly DelegateCommand _exitCommand;
 
-        private readonly DelegateCommand cutCommand;
-        private readonly DelegateCommand copyCommand;
-        private readonly DelegateCommand pasteCommand;
+        private readonly DelegateCommand _cutCommand;
+        private readonly DelegateCommand _copyCommand;
+        private readonly DelegateCommand _pasteCommand;
 
-        private readonly DelegateCommand createCameraCommand;
-        private readonly DelegateCommand createPointLightCommand;
-        private readonly DelegateCommand createCubeCommand;
+        private readonly DelegateCommand _createCameraCommand;
+        private readonly DelegateCommand _createPointLightCommand;
+        private readonly DelegateCommand _createCubeCommand;
 
         public MainViewModel(Scene scene)
         {
-            this.scene = scene;
-            shapes = new ObservableCollection<ShapeViewModel>();
+            _scene = scene;
+            _shapes = new ObservableCollection<ShapeViewModel>();
 
-            newCommand = new DelegateCommand(OnFileNew);
-            openCommand = new DelegateCommand(OnFileOpen);
-            saveCommand = new DelegateCommand(OnFileSave);
-            saveAsCommand = new DelegateCommand(OnFileSaveAs);
-            exitCommand = new DelegateCommand(OnExit);
+            _newCommand = new DelegateCommand(OnFileNew);
+            _openCommand = new DelegateCommand(OnFileOpen);
+            _saveCommand = new DelegateCommand(OnFileSave);
+            _saveAsCommand = new DelegateCommand(OnFileSaveAs);
+            _exitCommand = new DelegateCommand(OnExit);
 
-            cutCommand = new DelegateCommand(OnCut);
-            copyCommand = new DelegateCommand(OnCopy);
-            pasteCommand = new DelegateCommand(OnPaste);
+            _cutCommand = new DelegateCommand(OnCut);
+            _copyCommand = new DelegateCommand(OnCopy);
+            _pasteCommand = new DelegateCommand(OnPaste);
 
-            createCameraCommand = new DelegateCommand(OnCreateCamera);
-            createPointLightCommand = new DelegateCommand(OnCreatePointLight);
-            createCubeCommand = new DelegateCommand(OnCreateCube);
+            _createCameraCommand = new DelegateCommand(OnCreateCamera);
+            _createPointLightCommand = new DelegateCommand(OnCreatePointLight);
+            _createCubeCommand = new DelegateCommand(OnCreateCube);
         }
 
         private void OnFileNew(object obj)
@@ -64,7 +63,7 @@ namespace mse.ViewModels
             var result = dialog.ShowDialog();
             if (result == true)
             {
-                scene.Load(dialog.FileName);
+                _scene.Load(dialog.FileName);
             }
         }
 
@@ -84,7 +83,7 @@ namespace mse.ViewModels
             var result = dialog.ShowDialog();
             if (result == true)
             {
-                scene.Save(dialog.FileName);
+                _scene.Save(dialog.FileName);
             }
         }
 
@@ -107,19 +106,19 @@ namespace mse.ViewModels
 
         private void OnCreateCamera(object obj)
         {
-            scene.CreateShape("camera");
+            _scene.CreateShape("camera");
             Build();
         }
 
         private void OnCreatePointLight(object obj)
         {
-            scene.CreateShape("pointlight");
+            _scene.CreateShape("pointlight");
             Build();
         }
 
         private void OnCreateCube(object obj)
         {
-            scene.CreateShape("cube");
+            _scene.CreateShape("cube");
             Build();
         }
 
@@ -127,30 +126,29 @@ namespace mse.ViewModels
         {
             var obsShapes = new ObservableCollection<ShapeViewModel>();
 
-            foreach (var shape in scene.Shapes)
+            foreach (var shape in _scene.Shapes)
             {
                 var shapeViewModel = new ShapeViewModel(shape);
                 obsShapes.Add(shapeViewModel);
             }
 
-            shapes = obsShapes;
+            _shapes = obsShapes;
         }
 
-        public ObservableCollection<ShapeViewModel> Shapes => shapes;
+        public ObservableCollection<ShapeViewModel> Shapes => _shapes;
 
-        public ICommand NewCommand => newCommand;
-        public ICommand OpenCommand => openCommand;
-        public ICommand SaveCommand => saveCommand;
-        public ICommand SaveAsCommand => saveAsCommand;
-        public ICommand ExitCommand => exitCommand;
+        public ICommand NewCommand => _newCommand;
+        public ICommand OpenCommand => _openCommand;
+        public ICommand SaveCommand => _saveCommand;
+        public ICommand SaveAsCommand => _saveAsCommand;
+        public ICommand ExitCommand => _exitCommand;
 
-        public ICommand CutCommand => cutCommand;
-        public ICommand CopyCommand => copyCommand;
-        public ICommand PasteCommand => pasteCommand;
+        public ICommand CutCommand => _cutCommand;
+        public ICommand CopyCommand => _copyCommand;
+        public ICommand PasteCommand => _pasteCommand;
 
-        public ICommand CreateCameraCommand => createCameraCommand;
-        public ICommand CreatePointLightCommand => createPointLightCommand;
-        public ICommand CreateCubeCommand => createCubeCommand;
-
+        public ICommand CreateCameraCommand => _createCameraCommand;
+        public ICommand CreatePointLightCommand => _createPointLightCommand;
+        public ICommand CreateCubeCommand => _createCubeCommand;
     }
 }
