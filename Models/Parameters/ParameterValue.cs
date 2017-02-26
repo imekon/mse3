@@ -1,15 +1,15 @@
 ﻿namespace mse.Models.Parameters
 {
-    public abstract class ParameterValue<TType>
+    public abstract class ParameterValue<T>
     {
-        protected TType _value;
+        protected T _value;
 
-        public ParameterValue(TType value)
+        public ParameterValue(T value)
         {
             _value = value;
         }
 
-        public TType Value
+        public T Value
         {
             get { return _value; }
             set { _value = value; }

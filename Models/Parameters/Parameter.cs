@@ -15,19 +15,17 @@ namespace mse.Models.Parameters
         public abstract void ImportFromJson(JsonTextReader jsonReader);
     }
 
-
-
-    public class Parameter<TType> : Parameter where TType : ParameterValue<TType>
+    public class Parameter<T> : Parameter
     {
-        private TType _value;
+        private ParameterValue<T> _value;
 
-        public Parameter(string name, TType value) : base(name)
+        public Parameter(string name, ParameterValue<T> value) : base(name)
         {
             _name = name;
             _value = value;
         }
 
-        public TType Value
+        public ParameterValue<T> Value
         {
             get { return _value; }
             set { _value = value; }

@@ -98,12 +98,16 @@
     <Compile Include="Models\Parameters\Parameter.cs" />
     <Compile Include="Models\Parameters\ParameterManager.cs" />
     <Compile Include="Models\Parameters\ParameterValue.cs" />
+    <Compile Include="Models\Parameters\RGBValue.cs" />
     <Compile Include="Models\Parameters\StringValue.cs" />
     <Compile Include="Models\Parameters\VectorValue.cs" />
     <Compile Include="Models\PointLight.cs" />
     <Compile Include="Models\RGB.cs" />
     <Compile Include="Models\Scene.cs" />
     <Compile Include="Models\Shape.cs" />
+    <Compile Include="Models\Parameters\TextureValue.cs" />
+    <Compile Include="Models\Texture.cs" />
+    <Compile Include="Models\TextureManager.cs" />
     <Compile Include="ViewModels\CameraViewModel.cs" />
     <Compile Include="ViewModels\CubeViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />

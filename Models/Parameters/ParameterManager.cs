@@ -12,20 +12,20 @@ namespace mse.Models.Parameters
             _parameters = new Dictionary<string, Parameter>();
         }
 
-        public void AddParameter<TType>(string name, TType value) where TType : ParameterValue<TType>
+        public void AddParameter<T>(string name, ParameterValue<T> value)
         {
-            _parameters.Add(name, new Parameter<TType>(name, value));
+            _parameters.Add(name, new Parameter<T>(name, value));
         }
 
-        public TType GetParameter<TType>(string name) where TType : ParameterValue<TType>
+        public ParameterValue<T> GetParameter<T>(string name)
         {
-            var parameter = _parameters[name] as Parameter<TType>;
+            var parameter = _parameters[name] as Parameter<T>;
             return parameter.Value;
         }
 
-        public void SetParameter<TType>(string name, TType value) where TType : ParameterValue<TType>
+        public void SetParameter<T>(string name, ParameterValue<T> value)
         {
-            var parameter = _parameters[name] as Parameter<TType>;
+            var parameter = _parameters[name] as Parameter<T>;
             parameter.Value = value;
         }
 

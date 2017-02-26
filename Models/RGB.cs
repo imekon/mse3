@@ -4,34 +4,30 @@ namespace mse.Models
 {
     public class RGB
     {
-        protected ParameterManager parameters;
+        protected float _red, _green, _blue;
 
-        public RGB() : this(0.0, 0.0, 0.0)
+        public RGB() : this(0.0f, 0.0f, 0.0f)
         {
         }
 
-        public RGB(double red, double green, double blue)
+        public RGB(float red, float green, float blue)
         {
-            parameters = new ParameterManager();
-
-            parameters.AddParameter<string>("name", "untitled");
-            parameters.AddParameter<double>("red", red);
-            parameters.AddParameter<double>("green", green);
-            parameters.AddParameter<double>("blue", blue);
-
+            _red = red;
+            _green = green;
+            _blue = blue;
         }
-
-        public ParameterManager Parameters => parameters;
     }
 
     public class RGBA : RGB
     {
-        public RGBA(double red, double green, double blue, double alpha) : base(red, green, blue)
+        protected float _alpha;
+
+        public RGBA(float red, float green, float blue, float alpha) : base(red, green, blue)
         {
-            parameters.AddParameter<double>("alpha", 1.0);
+            _alpha = alpha;
         }
 
-        public RGBA() : this(0.0, 0.0, 0.0, 1.0)
+        public RGBA() : this(0.0f, 0.0f, 0.0f, 1.0f)
         {
             
         }

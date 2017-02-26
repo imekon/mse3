@@ -1,5 +1,6 @@
 ﻿using System.Windows.Media.Media3D;
 using mse.Models;
+using mse.Models.Parameters;
 
 namespace mse.ViewModels
 {
@@ -21,13 +22,13 @@ namespace mse.ViewModels
 
         public string Name
         {
-            get { return shape.Parameters.GetParameter<string>("name"); }
+            get { return shape.Parameters.GetParameter<string>("name").Value; }
             set
             {
                 var name = "";
                 if (SetProperty(ref name, value))
                 {
-                    shape.Parameters.SetParameter("name", name);
+                    shape.Parameters.SetParameter("name", new StringValue(name));
                 }
             }
         }
